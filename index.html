@@ -35,16 +35,22 @@
     .container{max-width:var(--container);margin:0 auto;padding:0 20px}
 
     /* Header */
-    .site-header{position:sticky;top:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:rgba(8,8,8,0.28);backdrop-filter:blur(6px)}
+    .site-header{position:sticky;top:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:rgba(8,8,8,0.28);backdrop-filter:blur(6px);transition:background 300ms ease, padding 300ms ease}
+    .site-header.scrolled{background:rgba(8,8,8,0.44);padding:8px 20px}
     .brand{display:flex;align-items:center;gap:12px}
     .brand-img{width:72px;height:72px;border-radius:12px;object-fit:cover}
+    .brand-title{font-size:18px}
+    .brand-sub{font-size:12px;color:var(--muted);margin-top:2px}
     .hevo-gradient{background:linear-gradient(90deg,#ff7aa8 0%,#ff51eb 45%,#ffd6ec 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900}
     .nav{display:flex;gap:12px}
-    .nav-link{color:var(--text-pale);text-decoration:none;padding:8px 12px;border-radius:8px}
+    .nav-link{color:var(--text-pale);text-decoration:none;padding:8px 12px;border-radius:8px;transition:background 220ms ease}
+    .nav-link:hover{background:rgba(255,255,255,0.03)}
 
     /* Hero */
-    .hero{padding:88px 0 40px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative}
-    .hero-title{font-size:56px;margin:0 0 8px}
+    .hero{padding:88px 0 40px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:visible}
+    .hero-inner{max-width:900px;padding:0 12px}
+    .hero-title{font-size:56px;margin:0 0 8px;line-height:1.02}
+    .hero-sub{margin-top:6px;color:var(--text-pale);opacity:0.95;font-weight:700}
     .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
 
     /* Unified button style */
@@ -61,20 +67,22 @@
       font-weight:800;
       letter-spacing:0.4px;
       font-size:14px;
-      transition: transform var(--transition), box-shadow var(--transition);
+      transition: transform var(--transition), box-shadow var(--transition), background 220ms ease;
       box-shadow: 0 8px 28px rgba(0,0,0,0.35);
     }
-    .msg-btn:hover{ transform: translateY(-4px); box-shadow: 0 18px 48px rgba(0,0,0,0.45); }
+    .msg-btn:hover{ transform: translateY(-4px); box-shadow: 0 18px 48px rgba(0,0,0,0.45); background: linear-gradient(90deg, rgba(255,81,235,0.18), rgba(226,26,154,0.08)); }
 
     .section{padding:56px 0}
     .muted{color:var(--muted)}
 
     /* Founders / players */
     .founder-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-    .founder-card{background:linear-gradient(180deg, rgba(8,8,8,0.44), rgba(8,8,8,0.22));padding:20px;border-radius:14px;text-align:center;color:var(--text-pale)}
+    .founder-card{background:linear-gradient(180deg, rgba(8,8,8,0.44), rgba(8,8,8,0.22));padding:20px;border-radius:14px;text-align:center;color:var(--text-pale);transform:translateY(18px);opacity:0;transition:all 520ms cubic-bezier(.2,.9,.3,1)}
+    .founder-card.in-view{transform:none;opacity:1}
     .founder-card img{width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:12px}
     .player-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
-    .player-card{background:linear-gradient(180deg, rgba(255,81,235,0.12), rgba(226,26,154,0.06));padding:18px;border-radius:12px;text-align:center;color:var(--text-dark);border:1px solid rgba(255,81,235,0.12)}
+    .player-card{background:linear-gradient(180deg, rgba(255,81,235,0.12), rgba(226,26,154,0.06));padding:18px;border-radius:12px;text-align:center;color:var(--text-dark);border:1px solid rgba(255,81,235,0.12);transform:translateY(18px);opacity:0;transition:all 520ms cubic-bezier(.2,.9,.3,1)}
+    .player-card.in-view{transform:none;opacity:1}
     .player-avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;margin:0 auto 12px}
     .player-card h3{margin:6px 0 6px;color:var(--text-dark);font-weight:800}
     .player-card p{margin:0;color:var(--text-dark);opacity:0.95;font-weight:700}
@@ -89,7 +97,8 @@
     .butter-wrap{display:flex;align-items:center;justify-content:center;padding:28px 0 12px;position:relative}
     .butter-ball{width:220px;height:220px;border-radius:50%;overflow:visible;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 22px 50px rgba(0,0,0,0.55);cursor:pointer;transition:transform 260ms ease}
     .butter-ball:hover{transform:translateY(-6px) scale(1.02)}
-    .butter-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;background-position:center;background-size:cover;border:1px solid rgba(255,255,255,0.04)}
+    .butter-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;background-position:center;background-size:cover;border:1px solid rgba(255,255,255,0.04);transition:transform 420ms cubic-bezier(.2,.9,.3,1), box-shadow 420ms}
+    .butter-ball:hover .butter-inner{transform:scale(1.02);box-shadow:0 30px 80px rgba(0,0,0,0.6)}
 
     .butter-wings{position:absolute;inset:0;pointer-events:none;display:block}
     .butter-wing{position:absolute;top:50%;width:0;height:0;transform-origin:center center;transition:all .36s cubic-bezier(.2,.9,.3,1);opacity:0}
@@ -160,21 +169,34 @@
     .ctrl-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text-pale);padding:8px 12px;border-radius:8px;cursor:pointer}
     .index-label{color:var(--text-pale);font-weight:700;margin-top:6px}
 
+    /* reveal helpers */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity 520ms cubic-bezier(.2,.9,.3,1), transform 520ms cubic-bezier(.2,.9,.3,1)}
+    .reveal.in-view{opacity:1;transform:none}
+
+    .fade-in{opacity:0;transition:opacity 720ms ease}
+    .fade-in.in-view{opacity:1}
+
+    .slide-up{transform:translateY(18px);opacity:0;transition:transform 520ms cubic-bezier(.2,.9,.3,1), opacity 520ms}
+    .slide-up.in-view{transform:none;opacity:1}
+
     @media (max-width:820px){
       .asset-viewer{flex-direction:column;padding:10px}
       .asset-img{max-width:92vw;max-height:72vh}
       .asset-controls{flex-direction:row}
+      .hero-title{font-size:36px}
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
       <div class="brand" style="gap:12px;align-items:center">
-        <img src="https://cdn.discordapp.com/attachments/1450251282844487892/1463684766682579076/wmremove-transformed.png?ex=6972ba2a&is=697168aa&hm=07a1b6f3fbea4857faa5fcd7821a6d51a7b1b3b74b15b8858bed5bdc08b37f1d&" alt="HEVO banner" class="brand-img" />
+        <!-- Updated header/banner image -->
+        <img src="https://cdn.discordapp.com/attachments/1450251282844487892/1463684766682579076/wmremove-transformed.png?ex=69740baa&is=6972ba2a&hm=3935ee2da7da7fec710dc0a5334ae85962213b568fb48484cdd7d75ca6b0bd9a&" alt="HEVO banner" class="brand-img" />
         <div>
           <div class="brand-title"><span class="hevo-gradient">HEVO</span></div>
-          <div class="brand-sub"><strong>FASTEST GROWING ORG OF ALL TIMES</strong></div>
+          <!-- Motto updated -->
+          <div class="brand-sub"><strong>Relentless by Nature</strong></div>
         </div>
       </div>
 
@@ -189,10 +211,11 @@
 
   <main id="home">
     <section class="hero">
-      <div class="hero-inner">
-        <h1 class="hero-title"><span class="hevo-gradient">HEVO Esports</span></h1>
+      <div class="hero-inner reveal">
+        <h1 class="hero-title fade-in"><span class="hevo-gradient">HEVO Esports</span></h1>
+        <div class="hero-sub slide-up">Built for growth. Driven by grit. Relentless by Nature.</div>
 
-        <div class="hero-cta">
+        <div class="hero-cta" style="margin-top:22px">
           <a class="msg-btn" href="#founders">Meet Our Founders</a>
           <a class="msg-btn" href="#players">Meet Our Pro Players</a>
         </div>
@@ -200,14 +223,12 @@
     </section>
 
     <section id="about" class="section">
-      <div class="container">
+      <div class="container reveal">
         <h2 style="margin:0 0 8px;color:var(--text-pale)">About HEVO</h2>
         <p class="about-text">
           HEVO is a rapidly expanding esports organization built around focused development, strategic growth, and a culture of professionalism.
           We prioritize player progression, content collaboration, and curated competitive opportunities that align with our long-term gameplan.
           Our community supports ambitious players who want to improve, compete, and contribute to a team-first environment that values discipline and creativity.
-          We do not run weekly scrims; instead we emphasize quality practice, targeted coaching, and scheduled competitive events that drive measurable improvement.
-          <strong>PS: WE DON'T DO WEEKLY SCRIMS.</strong>
         </p>
 
         <div class="social-row" role="navigation" aria-label="Social links">
@@ -228,22 +249,23 @@
       <div class="container">
         <h2 style="color:var(--text-pale);margin:0 0 8px">Founders</h2>
         <div class="founder-grid">
-          <article class="founder-card">
+          <article class="founder-card reveal">
             <img src="https://images-ext-1.discordapp.net/external/2_ZVhfRg01mXc3BzcF6kJFTuXivGPqHdzqBVCY5QXu8/%3Fsize%3D4096/https/cdn.discordapp.com/avatars/713058653673881682/c7a9877991cb2774b85f18763bedaf7d.png?format=webp&quality=lossless" alt="Sozo" />
             <h3>Sozo</h3>
             <p>Main face of transit · Founder</p>
             <a class="msg-btn" href="https://discord.gg/8xTTjsQb" target="_blank" rel="noopener">Message on Discord</a>
           </article>
 
-          <article class="founder-card">
+          <article class="founder-card reveal">
             <img src="https://cdn.discordapp.com/avatars/1307439758732955708/73011a5d95a361b6472c5fa8084107e7.png?size=4096" alt="EnSena" />
             <h3>EnSena</h3>
             <p>Founder</p>
             <a class="msg-btn" href="https://discord.gg/8xTTjsQb" target="_blank" rel="noopener">Message on Discord</a>
           </article>
 
-          <article class="founder-card">
-            <img src="https://cdn.discordapp.com/guilds/1444872814896222392/users/1232563371086315545/avatars/0500f2391e4f48df91525f747e37d61a.png?size=4096" alt="Holy" />
+          <article class="founder-card reveal">
+            <!-- Holy image updated -->
+            <img src="https://cdn.discordapp.com/guilds/1444872814896222392/users/1232563371086315545/avatars/c6d1543b788dd55cd528a89bc1e24461.png?size=4096" alt="Holy" />
             <h3>Holy</h3>
             <p>Founder</p>
             <a class="msg-btn" href="https://discord.gg/8xTTjsQb" target="_blank" rel="noopener">Message on Discord</a>
@@ -258,49 +280,45 @@
         <p class="muted" style="margin:0 0 12px">Roster</p>
 
         <div class="player-grid" id="player-grid">
-          <article class="player-card">
-            <img class="player-avatar" src="https://cdn.discordapp.com/avatars/1247334665296285803/b2f4ee16100c0900a314df8e7547a878.png?size=4096" alt="HEVO lucks" />
-            <h3>HEVO lucks</h3>
-            <p style="font-weight:700">Signed Pro</p>
-          </article>
+          <!-- HEVO lucks removed as requested -->
 
-          <article class="player-card">
+          <article class="player-card reveal">
             <img class="player-avatar" src="https://cdn.discordapp.com/avatars/1441247285567684730/6e55f8e8e168200b1754d0d6163e4779.png?size=4096" alt="HEVO Paz" />
             <h3>HEVO Paz</h3>
             <p>Pro Tokens</p>
           </article>
 
-          <article class="player-card">
+          <article class="player-card reveal">
             <img class="player-avatar" src="https://cdn.discordapp.com/avatars/1234576853851963417/7c947ad88c2a59556e948d343f2d7245.png?size=4096" alt="HEVO Pina" />
             <h3>HEVO Pina</h3>
             <p>Pro Tokens</p>
           </article>
 
-          <article class="player-card">
+          <article class="player-card reveal">
             <img class="player-avatar" src="https://cdn.discordapp.com/avatars/852762887214727238/019b493816ad8bed9e30b761b89e5ec0.png?size=4096" alt="HEVO vlxq" />
             <h3>HEVO vlxq</h3>
             <p>Pro Tokens</p>
           </article>
 
-          <article class="player-card">
+          <article class="player-card reveal">
             <img class="player-avatar" src="https://cdn.discordapp.com/avatars/1456885787911131341/12a51cc8fed727478b74fe4440659815.png?size=4096" alt="HEVO Z" />
             <h3>HEVO Z</h3>
             <p>Pro Tokens</p>
           </article>
 
-          <article class="player-card">
+          <article class="player-card reveal">
             <img class="player-avatar" src="https://cdn.discordapp.com/avatars/1379652525220696157/9cd6276e6dd83be797275ec92f577809.png?size=4096" alt="HERO Vixion" />
             <h3>HERO Vixion</h3>
             <p>Tokens</p>
           </article>
 
-          <article class="player-card">
+          <article class="player-card reveal">
             <img class="player-avatar" src="https://cdn.discordapp.com/avatars/834990831232483410/cb37988fb33fde6cda2605ad6b704e8a.png?size=4096" alt="HEVO Jayden" />
             <h3>HEVO Jayden</h3>
             <p>Tokens</p>
           </article>
 
-          <article class="player-card">
+          <article class="player-card reveal">
             <img class="player-avatar" src="https://cdn.discordapp.com/avatars/1137165815960043570/fb2c0e2e24d04eb47ba5643f1ecc2048.png?size=4096" alt="HEVO Qick" />
             <h3>HEVO Qick</h3>
             <p>Tokens</p>
@@ -311,7 +329,8 @@
 
     <div class="butter-wrap">
       <div class="butter-ball" id="butterBadge" tabindex="0" aria-label="HEVO assets preview" role="button">
-        <div class="butter-inner" id="butterInner" style="background-image:url('https://cdn.discordapp.com/attachments/1450251282844487892/1463707896046162103/1769045006-0c26c639.jpg?ex=6972cfb4&is=69717e34&hm=4eccae6ae1765e736dbb4a3ec1f036c35264fda3ecb99386dd51787e4922389f&');"></div>
+        <!-- Updated bottom circle image -->
+        <div class="butter-inner" id="butterInner" style="background-image:url('https://cdn.discordapp.com/attachments/1450251282844487892/1463707896046162103/1769045006-0c26c639.jpg?ex=69742134&is=6972cfb4&hm=e982c0c4ce8b26b569c5088fe4b1df92a1deb7571822375de3f9c1958a2b68b3&');"></div>
 
         <div class="butter-wings" aria-hidden="true">
           <div class="butter-wing left" id="butterLeft">
@@ -359,17 +378,17 @@
 
       // Assets list
       var assets = [
-        'https://cdn.discordapp.com/attachments/1450251282844487892/1463455457027821641/Gemini_Generated_Image_1ohtdv1ohtdv1oht_1.png?ex=69728d5a&is=69713bda&hm=7b4d14b82350e1aa1bd884468cf88aa3b5fbdfa02b788de3c5d05ff314b58fa1&',
-        'https://cdn.discordapp.com/attachments/1450251282844487892/1463455472387620929/Gemini_Generated_Image_9t912o9t912o9t91.png?ex=69728d5e&is=69713bde&hm=2c435066631a2a5cb8213c029a3acea739e454c34cbc4abfcb2f4d61df8583a5&',
-        'https://cdn.discordapp.com/attachments/1450251282844487892/1463455483183497250/Gemini_Generated_Image_o713tro713tro713_1.png?ex=69728d60&is=69713be0&hm=6b9f085bdba29e5ea9f96a7f8249e950d45faf16d53acb61846dd22cb2ab3e9e&',
-        'https://cdn.discordapp.com/attachments/1450251282844487892/1463456702329389130/level.PNG?ex=69728e83&is=69713d03&hm=202c31b0d65d1ca064e26efd48f1c09700f1a9ccfbc06a167089c2c67eeefa52&',
-        'https://cdn.discordapp.com/attachments/1450251282844487892/1463461692330479636/New_Project_-_2026-01-21T011328.867.png?ex=69729329&is=697141a9&hm=1e626313bc2a929b0ed59369d592e783b55a431cf8e8a2fb8f979161722ff7c4&',
-        'https://cdn.discordapp.com/attachments/1450251282844487892/1463684766682579076/wmremove-transformed.png?ex=6972ba2a&is=697168aa&hm=07a1b6f3fbea4857faa5fcd7821a6d51a7b1b3b74b15b8858bed5bdc08b37f1d&',
-        'https://cdn.discordapp.com/attachments/1450251282844487892/1463707874738831443/1769045130-89483ffe.jpg?ex=6972cfaf&is=69717e2f&hm=e413e99852bd8d3de9409daa8e7b7b5bdda61382b53ee75b312f133b4c66f4ba&',
-        'https://cdn.discordapp.com/attachments/1450251282844487892/1463707896046162103/1769045006-0c26c639.jpg?ex=6972cfb4&is=69717e34&hm=4eccae6ae1765e736dbb4a3ec1f036c35264fda3ecb99386dd51787e4922389f&',
-        'https://cdn.discordapp.com/attachments/1450251282844487892/1463769153994231828/starting_soon_1.png?ex=697308c1&is=6971b741&hm=ad298b951f1c9a4da90cbfb1beb0a12a01d1c08813eb293c0bcfa4e6c267685e&',
-        'https://cdn.discordapp.com/attachments/1450251282844487892/1463769165599871120/New_Project_-_2026-01-21T213451.780.png?ex=697308c4&is=6971b744&hm=94553e8e29a36bbf4e03e0e62bc2df99908113a2ad177efa946b14b42039d576&',
-        'https://cdn.discordapp.com/attachments/1450251282844487892/1463770813353164916/New_Project_-_2026-01-21T214158.600.png?ex=69730a4d&is=6971b8cd&hm=1e2286e4c67a63f8d559b681dbcde2c1746cfc7c315e28dec30068fd600b35cb&'
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1463455457027821641/Gemini_Generated_Image_1ohtdv1ohtdv1oht_1.png?ex=6973deda&is=69728d5a&hm=4d1a92340ed3acfd5c96e0aeb6ad12492a0d496a2dd55333045ce997b1bc1932&',
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1463455472387620929/Gemini_Generated_Image_9t912o9t912o9t91.png?ex=6973dede&is=69728d5e&hm=8318dc20c8814d527815061b4eb00513a97eb1c1fae511691960ac9534eeeedc&',
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1463455483183497250/Gemini_Generated_Image_o713tro713tro713_1.png?ex=6973dee0&is=69728d60&hm=d1c27cf3299aeaf30e0739902630ffdaa6bc41ee44a3483baba7524169bad7a7&',
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1463456702329389130/level.PNG?ex=6973e003&is=69728e83&hm=037333cb7eb300c4119ae3e476c0d626714ce751c33bd034f25391cbed846b04&',
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1463461692330479636/New_Project_-_2026-01-21T011328.867.png?ex=6973e4a9&is=69729329&hm=17321776869872f90635c895f6db9883ba86765ad0972857a4b54a9a485343c6&',
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1463684766682579076/wmremove-transformed.png?ex=69740baa&is=6972ba2a&hm=3935ee2da7da7fec710dc0a5334ae85962213b568fb48484cdd7d75ca6b0bd9a&',
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1463707874738831443/1769045130-89483ffe.jpg?ex=6974212f&is=6972cfaf&hm=c887d78f48b3d360669089ad88c1ce8622bd3abe33d6dd3b7fbfc35592e544e9&',
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1463707896046162103/1769045006-0c26c639.jpg?ex=69742134&is=6972cfb4&hm=e982c0c4ce8b26b569c5088fe4b1df92a1deb7571822375de3f9c1958a2b68b3&',
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1463769153994231828/starting_soon_1.png?ex=69745a41&is=697308c1&hm=ff82424c0c7929b2350b24da9a4ae378872c4881467ed5bf76499bbe8d38a185&',
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1463769165599871120/New_Project_-_2026-01-21T213451.780.png?ex=69745a44&is=697308c4&hm=4263b7dec0f7473ead670b544af7685d7715ed89a483ceec4d607edadde82b6b&',
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1463770813353164916/New_Project_-_2026-01-21T214158.600.png?ex=69745bcd&is=69730a4d&hm=f5ce6d511b1d8e58be802c5ed3fb1a1f16e303a7fa3c2558cc2ae6ea807264e2&'
       ];
 
       // DOM refs
@@ -381,6 +400,7 @@
       var nextBtn = document.getElementById('nextBtn');
       var indexLabel = document.getElementById('indexLabel');
       var butterBadge = document.getElementById('butterBadge');
+      var siteHeader = document.getElementById('siteHeader');
 
       var currentIndex = 0;
 
@@ -496,6 +516,41 @@
       // remove header border line
       var header = document.querySelector('.site-header');
       if (header) { header.style.borderBottom = 'none'; header.style.boxShadow = 'none'; }
+
+      // IntersectionObserver for scroll reveal animations
+      var observerOptions = { root: null, rootMargin: '0px 0px -8% 0px', threshold: 0.12 };
+      var revealObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // optional: unobserve to avoid repeated triggers
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements with .reveal, .fade-in, .slide-up, .founder-card, .player-card
+      document.querySelectorAll('.reveal, .fade-in, .slide-up, .founder-card, .player-card').forEach(function(el){
+        revealObserver.observe(el);
+      });
+
+      // subtle header shrink on scroll
+      var lastScroll = 0;
+      window.addEventListener('scroll', function(){
+        var sc = window.scrollY || document.documentElement.scrollTop;
+        if (sc > 40) siteHeader.classList.add('scrolled'); else siteHeader.classList.remove('scrolled');
+        lastScroll = sc;
+      }, { passive:true });
+
+      // small parallax effect for hero background text (optional subtle)
+      var hero = document.querySelector('.hero');
+      window.addEventListener('scroll', function(){
+        if (!hero) return;
+        var rect = hero.getBoundingClientRect();
+        var offset = Math.max(-rect.top * 0.03, -20);
+        hero.style.transform = 'translateY(' + offset + 'px)';
+      }, { passive:true });
+
     })();
   </script>
 </body>
