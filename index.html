@@ -191,11 +191,9 @@
   <header class="site-header" id="siteHeader">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
       <div class="brand" style="gap:12px;align-items:center">
-        <!-- Updated header/banner image -->
         <img src="https://cdn.discordapp.com/attachments/1450251282844487892/1463684766682579076/wmremove-transformed.png?ex=69740baa&is=6972ba2a&hm=3935ee2da7da7fec710dc0a5334ae85962213b568fb48484cdd7d75ca6b0bd9a&" alt="HEVO banner" class="brand-img" />
         <div>
           <div class="brand-title"><span class="hevo-gradient">HEVO</span></div>
-          <!-- Motto updated -->
           <div class="brand-sub"><strong>Relentless by Nature</strong></div>
         </div>
       </div>
@@ -213,6 +211,7 @@
     <section class="hero">
       <div class="hero-inner reveal">
         <h1 class="hero-title fade-in"><span class="hevo-gradient">HEVO Esports</span></h1>
+        <div class="hero-sub slide-up">Built for growth. Driven by grit. Relentless by Nature.</div>
 
         <div class="hero-cta" style="margin-top:22px">
           <a class="msg-btn" href="#founders">Meet Our Founders</a>
@@ -228,6 +227,8 @@
           HEVO is a rapidly expanding esports organization built around focused development, strategic growth, and a culture of professionalism.
           We prioritize player progression, content collaboration, and curated competitive opportunities that align with our long-term gameplan.
           Our community supports ambitious players who want to improve, compete, and contribute to a team-first environment that values discipline and creativity.
+          We do not run weekly scrims; instead we emphasize quality practice, targeted coaching, and scheduled competitive events that drive measurable improvement.
+          <strong>PS: WE DON'T DO WEEKLY SCRIMS.</strong>
         </p>
 
         <div class="social-row" role="navigation" aria-label="Social links">
@@ -257,13 +258,12 @@
 
           <article class="founder-card reveal">
             <img src="https://cdn.discordapp.com/avatars/1307439758732955708/73011a5d95a361b6472c5fa8084107e7.png?size=4096" alt="EnSena" />
-            <h3>Ensena</h3>
+            <h3>EnSena</h3>
             <p>Founder</p>
             <a class="msg-btn" href="https://discord.gg/8xTTjsQb" target="_blank" rel="noopener">Message on Discord</a>
           </article>
 
           <article class="founder-card reveal">
-            <!-- Holy image updated -->
             <img src="https://cdn.discordapp.com/guilds/1444872814896222392/users/1232563371086315545/avatars/c6d1543b788dd55cd528a89bc1e24461.png?size=4096" alt="Holy" />
             <h3>Holy</h3>
             <p>Founder</p>
@@ -279,8 +279,6 @@
         <p class="muted" style="margin:0 0 12px">Roster</p>
 
         <div class="player-grid" id="player-grid">
-          <!-- HEVO lucks removed as requested -->
-
           <article class="player-card reveal">
             <img class="player-avatar" src="https://cdn.discordapp.com/avatars/1441247285567684730/6e55f8e8e168200b1754d0d6163e4779.png?size=4096" alt="HEVO Paz" />
             <h3>HEVO Paz</h3>
@@ -328,7 +326,6 @@
 
     <div class="butter-wrap">
       <div class="butter-ball" id="butterBadge" tabindex="0" aria-label="HEVO assets preview" role="button">
-        <!-- Updated bottom circle image -->
         <div class="butter-inner" id="butterInner" style="background-image:url('https://cdn.discordapp.com/attachments/1450251282844487892/1463707896046162103/1769045006-0c26c639.jpg?ex=69742134&is=6972cfb4&hm=e982c0c4ce8b26b569c5088fe4b1df92a1deb7571822375de3f9c1958a2b68b3&');"></div>
 
         <div class="butter-wings" aria-hidden="true">
@@ -376,6 +373,8 @@
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
       // Assets list
+      // NOTE: new assets added to the asset wheel (modal viewer).
+      // They are intentionally NOT included in the butterfly preview thumbs.
       var assets = [
         'https://cdn.discordapp.com/attachments/1450251282844487892/1463455457027821641/Gemini_Generated_Image_1ohtdv1ohtdv1oht_1.png?ex=6973deda&is=69728d5a&hm=4d1a92340ed3acfd5c96e0aeb6ad12492a0d496a2dd55333045ce997b1bc1932&',
         'https://cdn.discordapp.com/attachments/1450251282844487892/1463455472387620929/Gemini_Generated_Image_9t912o9t912o9t91.png?ex=6973dede&is=69728d5e&hm=8318dc20c8814d527815061b4eb00513a97eb1c1fae511691960ac9534eeeedc&',
@@ -387,7 +386,14 @@
         'https://cdn.discordapp.com/attachments/1450251282844487892/1463707896046162103/1769045006-0c26c639.jpg?ex=69742134&is=6972cfb4&hm=e982c0c4ce8b26b569c5088fe4b1df92a1deb7571822375de3f9c1958a2b68b3&',
         'https://cdn.discordapp.com/attachments/1450251282844487892/1463769153994231828/starting_soon_1.png?ex=69745a41&is=697308c1&hm=ff82424c0c7929b2350b24da9a4ae378872c4881467ed5bf76499bbe8d38a185&',
         'https://cdn.discordapp.com/attachments/1450251282844487892/1463769165599871120/New_Project_-_2026-01-21T213451.780.png?ex=69745a44&is=697308c4&hm=4263b7dec0f7473ead670b544af7685d7715ed89a483ceec4d607edadde82b6b&',
-        'https://cdn.discordapp.com/attachments/1450251282844487892/1463770813353164916/New_Project_-_2026-01-21T214158.600.png?ex=69745bcd&is=69730a4d&hm=f5ce6d511b1d8e58be802c5ed3fb1a1f16e303a7fa3c2558cc2ae6ea807264e2&'
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1463770813353164916/New_Project_-_2026-01-21T214158.600.png?ex=69745bcd&is=69730a4d&hm=f5ce6d511b1d8e58be802c5ed3fb1a1f16e303a7fa3c2558cc2ae6ea807264e2&',
+
+        // New assets requested — added to the asset wheel (modal viewer)
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1464079773813837885/Gemini_Generated_Image_sootresootresoot_4.png?ex=69742a0b&is=6972d88b&hm=297d9fd4a727483c53564eb03f3af563da08ad38890061788b59efe7c53ca0c5&',
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1464079790150520974/Gemini_Generated_Image_sootresootresoot_2.png?ex=69742a0f&is=6972d88f&hm=69f336d7c493d3998c3ddcab0ec0cb49a949e6dee6a00704dda4eda17712fdf0&',
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1464079800493670411/Gemini_Generated_Image_sootresootresoot.png?ex=69742a11&is=6972d891&hm=3f218c1da720d9354c6a8296cd6bc9ba8be164dbc31975ca4ed73e7498a44cc8&',
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1464079812652961935/Gemini_Generated_Image_sootresootresoot_1.png?ex=69742a14&is=6972d894&hm=02bc9aa580ed085a0e8f8919c044b1bc0690a22221c2eb65f58d88c53de27a81&',
+        'https://cdn.discordapp.com/attachments/1450251282844487892/1464079834782109898/New_Project_-_2026-01-22T112623.741.png?ex=69742a19&is=6972d899&hm=2c8c95b96d8156730e0c8a41fa6d30c088cdde1a42b5f72876a8d917970ac7a1&'
       ];
 
       // DOM refs
@@ -478,6 +484,7 @@
       document.querySelectorAll('img').forEach(function(img){ img.setAttribute('draggable','false'); });
 
       // populate butterfly preview thumbs (some assets)
+      // IMPORTANT: keep butterfly preview limited to the original set (first 8)
       var leftGrid = document.getElementById('butterLeftGrid');
       var rightGrid = document.getElementById('butterRightGrid');
       function populateButter(gridEl, list) {
@@ -491,6 +498,7 @@
           gridEl.appendChild(img);
         });
       }
+      // keep the butterfly gallery unchanged: use the first 8 assets only
       populateButter(leftGrid, assets.slice(0,4));
       populateButter(rightGrid, assets.slice(4,8));
 
@@ -522,13 +530,11 @@
         entries.forEach(function(entry){
           if (entry.isIntersecting) {
             entry.target.classList.add('in-view');
-            // optional: unobserve to avoid repeated triggers
             revealObserver.unobserve(entry.target);
           }
         });
       }, observerOptions);
 
-      // Observe elements with .reveal, .fade-in, .slide-up, .founder-card, .player-card
       document.querySelectorAll('.reveal, .fade-in, .slide-up, .founder-card, .player-card').forEach(function(el){
         revealObserver.observe(el);
       });
